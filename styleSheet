@@ -1,0 +1,113 @@
+body {
+  background-color: pink;
+
+}
+
+#spinner {
+  background-color: black;
+  position: absolute;
+  display: block;
+  top: 400px;
+  left: 722px;
+  width: 180px;
+  height: 20px;
+  border-radius: 200% 900% 900% 200%;
+  margin-top: -75px;
+  margin-left: -75px;
+  background-color: purple;
+  transform-origin: 0px;
+  /*animation: spin-right 1.2s infinite;
+*/
+}
+
+/*#spinningSpinner {
+  background-color: black;
+  position: absolute;
+  display: block;
+  top: 400px;
+  left: 722px;
+  width: 180px;
+  height: 20px;
+  border-radius: 200% 900% 900% 200%;
+  margin-top: -75px;
+  margin-left: -75px;
+  background-color: purple;
+  transform-origin: 0px;
+  animation: spin-right 1.2s infinite;
+
+}*/
+
+#board {
+  position: absolute;
+  margin-left: -250px;
+  margin-top: -200px;
+}
+
+#title {
+  position: absolute;
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 50px;
+  color: purple;
+  display: block;
+}
+#playerTurn {
+  position: absolute;
+  font-family: 'Berkshire Swash', cursive;
+  background-color: pink;
+  margin-left: 600px;
+  margin-top: 450px;
+  color: purple;
+}
+
+#instruction {
+  position: absolute;
+  font-family: 'Berkshire Swash', cursive;
+  color: purple;
+  margin-left: 600px;
+  margin-top: -60px;
+}
+
+#player1 {
+  position: absolute;
+  font-family: 'Berkshire Swash', cursive;
+  color: purple;
+
+}
+
+#player2 {
+  position: absolute;
+  font-family: 'Berkshire Swash', cursive;
+  color: purple;
+  margin-left: 1200px;
+}
+
+#player3 {
+  position: absolute;
+  font-family: 'Berkshire Swash', cursive;
+  color: purple;
+  margin-top: 280px;
+}
+
+#player4 {
+  position: absolute;
+  font-family: 'Berkshire Swash', cursive;
+  color: purple;
+  margin-top: 280px;
+  margin-left: 1200px;
+}
+
+.boardImage {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  margin-left: 690px;
+  margin-top: 326px;
+
+}
+
+@keyframes spin-right {
+  100% {
+   transform: rotate(360deg);
+  }
+}
+
