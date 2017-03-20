@@ -1,181 +1,179 @@
-
 (function(){
 console.log("mic check")
-//array with different players and each div within the section
-let players = [
-["player1", "#"],
-["player2", "#"],
-["player3", "#"],
-["player4", "#"],
-];
-//array of different colors
-let colors = ["pink", "blue", "green", "purple"]
-//array of all of the different jewelry
-let jewelry = [
-["necklace", "images/necklace.png"],
-["ring", "images/ring.png"],
-["earring", "images/earring.png"],
-["bracelet", "images/bracelet.png"],
-["crown", "images/crown.png"],
-["freebee", ""]
-];
-//random number function
-let randomJewels = jewelry[Math.floor(Math.random()*jewelry.length)];
 
-  let spinner = $("#spinner");
-  let hoverBoard = document.getElementById("board");
-  // let changeSpinner = function() {
-  //   hoverBoard.addEventListener("mouseover", function() {
-  //    spinner.css({"animation": "spin-right 1s infinite"});
-  //    spinner.css({"transform": "rotate(360deg)"})
-  //    })
-  // }
-  // changeSpinner()
-// let a = {"animation-direction": "spin-right"}
-// let b = {"animation-timing-function": "1.2s"}
-// let c = {"animation-iteration-count": "infinite"}
-//   let spinner = $("#spinner")
-//   let changeSpinner = function(){
-//      spinner.css(a+b+c)
-//    }
-  // let undoSpinner = function() {
-  //   spinner.css({"animation": ""})
-  // }
-  // spinner.on("click", function() {
-  //   undoSpinner()
-  // })
-// console.log(spinner.position().top)
-// console.log(spinner.position().left)
-// console.log(spinner.position().right)
-// console.log(spinner.position().bottom)
-  // spinner.on("click", function(){
-  //   changeSpinner()
-  // })
-  //this adds a line of css to the spinner making it spin
-
-
-// var for space bar
-// space bar stops and starts the spinning
-// let spacebar = new KeyboardEvent('keydown',{'keyCode':32,'which':32});
-// document.addEventListener('keydown', function() {
-//   console.log(which)
-// })
-
-//make a function
-// let hoverBoard = document.getElementById("board")
-
-// let fullRotation = function() {
-//   hoverBoard.addEventListener("mouseout", function (){
-//   // spinner.css({"transform": "rotate(360deg)"})
-//   spinner.css({"animation": ""})
-//   })
-// }
-// fullRotation()
-
-
+let player1Jewels = new Array(6)
 
 
 let randomDegree = function() {
   let degree = parseInt([Math.floor(Math.random()*360)]);
   return degree;
+};
+
+let spinner = $("#spinner");
+
+let hoverBoard = document.getElementById("board");
+
+let loser = [];
+
+
+let changeSpinner = function() {
+  hoverBoard.addEventListener("mouseover", function() {
+   spinner.css({"animation": "spin-right .45s linear infinite"});
+   spinner.css({"transform": "rotate(0deg)"});
+   $("#instruction").empty().append("Click to Stop!");
+   })
+  hoverBoard.addEventListener("click", function() {
+   spinnerSpot = randomDegree();
+   spinner.css({"animation": ""});
+   spinner.css({"transform": "rotate(" + spinnerSpot + "deg)"});
+   let giveMeJewelry = function() {
+    if(spinnerSpot >=0 && spinnerSpot<30){
+     if(player1Jewels[0] === undefined){
+       player1Jewels[0] = "ring";
+       $("#instruction").empty().append("<p>Collect Your Ring!</p>");
+       $("#playerTurn").append("<div class='tada'><img src='images/ring.png'></div>");
+       $(".tada").draggable();
+       $("#player1").droppable();
+      } else {
+       $("#instruction").empty().append("<p>Spin Again!</p>");
+       loser.push("tick");
+       if(loser.length > 9){
+       alert("Your pile is very ugly. You lose.");
+       $("#instruction").empty().append("loser!");
+       }
+      }
+    } else if(spinnerSpot>=30 && spinnerSpot<90){
+     if(player1Jewels[0] == "ring" && player1Jewels[2] == "bracelet" && player1Jewels[3] == "earring" && player1Jewels[4] == "necklace" && player1Jewels[5] == "diamond" && player1Jewels[1] === undefined){
+       player1Jewels[1] = "crown";
+       $("#instruction").empty().append("<p>Collect Your Crown! You Win!!!!</p>");
+       $("#playerTurn").append("<div class='tada'><img src='images/crown.png'></div>");
+       $(".tada").draggable();
+       spinner.css({"animation": ""});
+       alert("Winner! You've made a very pretty pile!")
+      } else {
+       $("#instruction").empty().append("<p>Spin Again!</p>");
+       loser.push("tick");
+       if(loser.length > 9){
+       alert("Your pile is very ugly. You lose.");
+       $("#instruction").empty().append("loser!");
+       }
+      }
+    } else if(spinnerSpot>=90 && spinnerSpot<150){
+     if(player1Jewels[2] === undefined){
+       player1Jewels[2] = "bracelet";
+       $("#instruction").empty().append("<p>Collect Your Bracelet!</p>");
+       $("#playerTurn").append("<div class='tada'><img src='images/bracelet.png'></div>");
+       $(".tada").draggable();
+      } else {
+       $("#instruction").empty().append("<p>Spin Again!</p>");
+       loser.push("tick");
+       if(loser.length > 9){
+       alert("Your pile is very ugly. You lose.");
+       $("#instruction").empty().append("loser!");
+       }
+      }
+    } else if(spinnerSpot>=150 && spinnerSpot<210){
+     if(player1Jewels[3] === undefined){
+       player1Jewels[3] = "earring";
+       $("#instruction").empty().append("<p>Collect Your Earrings!</p>");
+       $("#playerTurn").append("<div class='tada'><img src='images/earring.png'></div>");
+       $(".tada").draggable();
+      } else {
+       $("#instruction").empty().append("<p>Spin Again!</p>");
+       loser.push("tick");
+       if(loser.length > 9){
+       alert("Your pile is very ugly. You lose.");
+       $("#instruction").empty().append("loser!");
+       }
+      }
+    } else if(spinnerSpot>=210 && spinnerSpot<270){
+     if(player1Jewels[4] === undefined){
+       player1Jewels[4] = "necklace";
+       $("#instruction").empty().append("<p>Collect Your Necklace!</p>");
+       $("#playerTurn").append("<div class='tada'><img src='images/necklace.png'></div>");
+       $(".tada").draggable();
+      } else {
+       $("#instruction").empty().append("<p>Spin Again!</p>");
+       loser.push("tick");
+       if(loser.length > 9){
+       alert("Your pile is very ugly. You lose.");
+       $("#instruction").empty().append("loser!");
+       }
+      }
+    } else if(spinnerSpot>=270 && spinnerSpot<330){
+     if(player1Jewels[5] === undefined){
+       player1Jewels[5] = "diamond";
+       $("#instruction").empty().append("<p>Collect Your Diamond!</p>");
+       $("#playerTurn").append("<div class='tada'><img src='images/free.png'></div>");
+       $(".tada").draggable();
+      } else {
+       $("#instruction").empty().append("<p>Spin Again!</p>");
+       loser.push("tick");
+       if(loser.length > 9){
+       alert("Your pile is very ugly. You lose.");
+       $("#instruction").empty().append("loser!");
+       }
+      }
+    } else {
+      if(player1Jewels[0] === undefined){
+       player1Jewels[0] = "ring";
+       $("#instruction").empty().append("<p>Collect Your Ring!</p>");
+       $("#playerTurn").append("<div class='tada'><img src='images/ring.png'></div>");
+       $(".tada").draggable();
+      } else {
+       $("#instruction").empty().append("<p>Spin Again!</p>");
+       loser.push("tick");
+       if(loser.length > 9){
+       alert("Your pile is very ugly. You lose.");
+       $("#instruction").empty().append("loser!");
+       }
+      }
+    }
+   }
+   giveMeJewelry()
+  })
 }
-
-// let luckyStop = function() {
-//   hoverBoard.addEventListener("click", function() {
-//     let randomNum = randomDegree()
-//     console.log(randomNum);
-//     spinner.css({"animation": ""})
-//     spinner.css({"transform": "rotate(" + randomNum + "deg)"})
-//   })
-
-// }
-// luckyStop()
-
-// let doSomething = function() {
-//   hoverBoard.addEventListener('mouseover', function() {
-//     changeSpinner()
-//   });
-//   luckyStop();
-//   fullRotation()
-//   // hoverBoard.addEventListener('click', function() {
-//     // undoSpinner()
-
-
-//   }
-
-// doSomething()
-
-let interactiveSpinner = function() {
-  let spinnerSpot = randomDegree()
-  let startSpinner = function() {
-    hoverBoard.addEventListener("mouseover", function() {
-     let theDiff = 360 - spinnerSpot
-     let addTo = theDiff + spinnerSpot
-     // console.log(addTo)
-     spinner.css({"animation": "spin-right 1s infinite"});
-     spinner.css({"transform": "rotate(" + addTo + "deg)"});
-     });
-  }
-  startSpinner()
-  let stopSpinner = function() {
-    hoverBoard.addEventListener("mouseout", function() {
-     // let randomNum = randomDegree()
-     console.log(spinnerSpot);
-     spinner.css({"animation": ""});
-     spinner.css({"transform": "rotate(" + spinnerSpot + "deg)"});
-    });
-  let giveMeJewelry = function() {
-  // let spinnerSpot = randomDegree();
-  if(spinnerSpot >=0 && spinnerSpot<30){
-    console.log("ring");
-  } else if(spinnerSpot>=30 && spinnerSpot<90){
-    console.log("crown");
-  } else if(spinnerSpot>=90 && spinnerSpot<150){
-    console.log("bracelet");
-  } else if(spinnerSpot>=150 && spinnerSpot<210){
-    console.log("earring");
-  } else if(spinnerSpot>=210 && spinnerSpot<270){
-    console.log("necklace");
-  } else if(spinnerSpot>=270 && spinnerSpot<330){
-    console.log("free");
-  } else {
-    console.log("ring");
-  }
-}
-giveMeJewelry()
-
-
-//comment
+changeSpinner()
 
 
 
 
 
 
-  }
-  stopSpinner()
-}
-interactiveSpinner()
 
-// let giveMeJewelry = function() {
-//   // let spinnerSpot = randomDegree();
-//   if(spinnerSpot >=0 && spinnerSpot<30){
-//     console.log("ring");
-//   } else if(spinnerSpot>=30 && spinnerSpot<90){
-//     console.log("crown");
-//   } else if(spinnerSpot>=90 && spinnerSpot<150){
-//     console.log("bracelet");
-//   } else if(spinnerSpot>=150 && spinnerSpot<210){
-//     console.log("earring");
-//   } else if(spinnerSpot>=210 && spinnerSpot<270){
-//     console.log("necklace");
-//   } else if(spinnerSpot>=270 && spinnerSpot<330){
-//     console.log("free");
-//   } else {
-//     console.log("ring");
-//   }
-// }
-// giveMeJewelry()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

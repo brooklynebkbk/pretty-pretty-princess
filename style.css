@@ -4,7 +4,6 @@ body {
 }
 
 #spinner {
-  background-color: black;
   position: absolute;
   display: block;
   top: 590px;
@@ -16,10 +15,6 @@ body {
   margin-left: -75px;
   background-color: purple;
   transform-origin: 0px;
-  /*animation: spin-right 3s infinite;*/
-  /*transform: rotate(100deg);*/
-
-
 
 }
 
@@ -43,14 +38,16 @@ body {
   margin-left: 600px;
   margin-top: 560px;
   color: purple;
+  text-align: center;
 }
 
 #instruction {
   position: absolute;
   font-family: 'Berkshire Swash', cursive;
   color: purple;
-  margin-left: 600px;
+  margin-left: 530px;
   margin-top: 10px;
+  text-align: center;
 }
 
 #player1 {
@@ -59,30 +56,17 @@ body {
   color: purple;
   margin-left: 5px;
   margin-top: 80px;
+  text-align: center;
+  height: 300px;
+  width: 300px;
+  border-radius: 10%;
+  border-color: purple;
+  border-width: 3px;
+  border-style: solid;
 }
 
-#player2 {
-  position: absolute;
-  font-family: 'Berkshire Swash', cursive;
-  color: purple;
-  margin-left: 1200px;
-  margin-top: 80px;
-}
 
-#player3 {
-  position: absolute;
-  font-family: 'Berkshire Swash', cursive;
-  color: purple;
-  margin-top: 280px;
-}
 
-#player4 {
-  position: absolute;
-  font-family: 'Berkshire Swash', cursive;
-  color: purple;
-  margin-top: 280px;
-  margin-left: 1200px;
-}
 
 #boardRing {
   position: absolute;
@@ -128,7 +112,7 @@ body {
   position: absolute;
   background-color: purple;
   margin-top: 515px;
-  margin-left: 881px;
+  margin-left: 880px;
   display: block;
   height: 20px;
   width: 20px;
@@ -144,9 +128,6 @@ body {
 
 }
 
-.playerPic {
-
-}
 
 @keyframes spin-right {
   100% {
@@ -154,13 +135,5 @@ body {
   }
 }
 
-/*@keyframes spin-right {
-  from {
-    transform: rotate(30deg);
-  }
 
-  to {
-    transform: rotate(450deg);
-  }
-}*/
 
