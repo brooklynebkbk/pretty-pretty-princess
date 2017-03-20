@@ -14,4 +14,6 @@ Some things that I would love to revisit and improve would be to allow multiple 
 
 I have also included the drawing and planning for my game-play screen within the images folder. 
 
+Enjoy and stay Pretty!
+
 
